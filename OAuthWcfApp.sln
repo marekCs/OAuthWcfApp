@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthWcfApp", "OAuthWcfApp\OAuthWcfApp.csproj", "{70DFAD35-76ED-4B3C-8063-539EF63FEAA1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{467DAC2F-50AF-450B-B946-E2D9299BE2E6}"
+	ProjectSection(SolutionItems) = preProject
+		TestPage.html = TestPage.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70DFAD35-76ED-4B3C-8063-539EF63FEAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70DFAD35-76ED-4B3C-8063-539EF63FEAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70DFAD35-76ED-4B3C-8063-539EF63FEAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70DFAD35-76ED-4B3C-8063-539EF63FEAA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9AD1914-AE6B-45BF-BBA7-AB98463375E8}
+	EndGlobalSection
+EndGlobal
