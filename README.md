@@ -1,7 +1,7 @@
 # OAuthWcfApp
 I am working on the following project: Provide OAUTH 2.0 sample using WCF .NET Framework 3.0 and javascript AJAX.
-Client: Victorio Sudarmadi P. 
-Developer: marekdvorak@protonmail.com
+Client: Victorio S. P. 
+Developer: Marek
 
 Project Summary:
 OAuth 2.0 is a protocol that allows a user to grant limited access to their resources on one site, to another site, without having to expose their credentials.
