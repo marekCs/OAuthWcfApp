@@ -12,8 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OAuthWcfApp.WebFormClient", "OAuthWcfApp.WebFormClient\OAuthWcfApp.WebFormClient.csproj", "{EBAC842B-86DD-48F2-87AF-9296ACBE7630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorsModule", "CorsModule\CorsModule.csproj", "{109C0177-A7C5-4DE4-AB3C-B96A282B03ED}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,10 +26,6 @@ Global
 		{EBAC842B-86DD-48F2-87AF-9296ACBE7630}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBAC842B-86DD-48F2-87AF-9296ACBE7630}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBAC842B-86DD-48F2-87AF-9296ACBE7630}.Release|Any CPU.Build.0 = Release|Any CPU
-		{109C0177-A7C5-4DE4-AB3C-B96A282B03ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{109C0177-A7C5-4DE4-AB3C-B96A282B03ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{109C0177-A7C5-4DE4-AB3C-B96A282B03ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{109C0177-A7C5-4DE4-AB3C-B96A282B03ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
