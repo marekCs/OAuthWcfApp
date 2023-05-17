@@ -19,13 +19,11 @@ namespace OAuthWcfApp.Authorize
 
         public void BeforeSendReply(ref Message reply, object correlationState)
         {
-            var origin = (string)correlationState;
-            var httpResponse = new HttpResponseMessageProperty();
-            reply.Properties.Add(HttpResponseMessageProperty.Name, httpResponse);
+            var httpResponse = (HttpResponseMessageProperty)reply.Properties[HttpResponseMessageProperty.Name];
 
-            httpResponse.Headers.Add("Access-Control-Allow-Origin", origin);
+            httpResponse.Headers.Add("Access-Control-Allow-Origin", "*"); 
             httpResponse.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-            httpResponse.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
+            httpResponse.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
             if (HttpContext.Current.Request.HttpMethod == "OPTIONS")
             {

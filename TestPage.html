@@ -12,7 +12,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:8089/oAuthService/Services/TokenService.svc/Authorize",
+                    url: "http://localhost:49847/Services/TokenService.svc/Authorize",
                     data: JSON.stringify(requestData),
                     contentType: "application/json",
                     dataType: "text",
@@ -34,8 +34,8 @@
                 var accessToken = $('#accessToken').text();
 
                 $.ajax({
-                    type: "GET",
-                    url: "http://localhost:8089/oAuthService/Services/UserService.svc/GetUser",
+                    type: "POST",
+                    url: "http://localhost:49847/Services/UserService.svc/GetUser",
                     headers: {
                         "Authorization": "Bearer " + accessToken
                     },

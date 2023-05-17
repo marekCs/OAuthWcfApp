@@ -18,13 +18,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8089/oAuthService/Services/TokenService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8089/Services/TokenService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="TokenService.wsdl" MetadataType="Wsdl" ID="2c774ea6-9ead-4eb7-a8c3-f7c4f0cdf8e0" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?wsdl" />
-    <MetadataFile FileName="TokenService.xsd" MetadataType="Schema" ID="39d399e6-f9a2-46c4-9dfe-ffd0bf768fd2" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?xsd=xsd1" />
-    <MetadataFile FileName="TokenService.disco" MetadataType="Disco" ID="f1205c2f-6c00-4a3d-8476-d038047047eb" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?disco" />
-    <MetadataFile FileName="TokenService1.xsd" MetadataType="Schema" ID="4a984978-990c-4786-ad4e-50f0cf054be0" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TokenService1.wsdl" MetadataType="Wsdl" ID="cf9c1507-8f41-4d68-ae6e-19658aa5b4ab" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/TokenService.svc?wsdl" />
+    <MetadataFile FileName="TokenService2.xsd" MetadataType="Schema" ID="59f1ac51-5aa1-426b-bf1e-1399ee50cfa7" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/TokenService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TokenService21.xsd" MetadataType="Schema" ID="49d0eff4-018f-49ff-a111-c44e4df412cc" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/TokenService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TokenService1.disco" MetadataType="Disco" ID="efa8a2d9-52b2-4e7e-858c-bbf4ca4755ea" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/TokenService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

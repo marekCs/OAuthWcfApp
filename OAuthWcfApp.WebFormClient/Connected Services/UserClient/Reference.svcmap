@@ -18,14 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8089/oAuthService/Services/UserService.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8089/Services/UserService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="UserService.xsd" MetadataType="Schema" ID="0b096e48-6f38-4755-ae71-ebcb7d39a77a" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/UserService.svc?xsd=xsd0" />
-    <MetadataFile FileName="UserService.wsdl" MetadataType="Wsdl" ID="86716311-ebfe-4ac0-95c2-f5b80cfc5b71" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/UserService.svc?wsdl" />
-    <MetadataFile FileName="UserService1.xsd" MetadataType="Schema" ID="89cd3178-7051-4ff7-9fdc-3c0318077186" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/UserService.svc?xsd=xsd2" />
-    <MetadataFile FileName="UserService.disco" MetadataType="Disco" ID="bd3b8ef3-9e40-4374-82e4-87204e24fca9" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/UserService.svc?disco" />
-    <MetadataFile FileName="UserService2.xsd" MetadataType="Schema" ID="3f18fdc9-3cb0-4825-897e-0308f821961c" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService1.wsdl" MetadataType="Wsdl" ID="f00891a8-280a-4aca-bb74-a43614dec0fd" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/UserService.svc?wsdl" />
+    <MetadataFile FileName="UserService3.xsd" MetadataType="Schema" ID="9731913f-9504-4ce6-9400-76b3f2179a8a" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/UserService.svc?xsd=xsd1" />
+    <MetadataFile FileName="UserService31.xsd" MetadataType="Schema" ID="910982ab-d1bc-4b4c-9dc7-ab7212b4e8ec" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/UserService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UserService32.xsd" MetadataType="Schema" ID="c9af1d38-ca1a-4d5d-a163-de1f069100c3" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/UserService.svc?xsd=xsd2" />
+    <MetadataFile FileName="UserService1.disco" MetadataType="Disco" ID="899dbe7a-780e-49b6-bb32-9c0bd0fb843b" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/Services/UserService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

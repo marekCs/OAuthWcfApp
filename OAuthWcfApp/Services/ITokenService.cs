@@ -1,26 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+﻿using System.ServiceModel;
 
 namespace OAuthWcfApp.Services
 {
-    [DataContract]
-    public class AuthRequest
-    {
-        [DataMember]
-        public string Login { get; set; }
-
-        [DataMember]
-        public string Password { get; set; }
-    }
-
     [ServiceContract]
     public interface ITokenService
     {
         [OperationContract]
-        string Authorize(AuthRequest request);
+        string Authorize(string loginPasswordInJsonFormat);
 
         [OperationContract]
         string Exchange(string authorizationGrant);

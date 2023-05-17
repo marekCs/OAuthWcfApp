@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
     </ProductVersion>
-    <SchemaVersion>3.0</SchemaVersion>
-    <ProjectGuid>{70DFAD35-76ED-4B3C-8063-539EF63FEAA1}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AE038324-FF26-4508-AF3F-9DA3E84ADE07}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OAuthWcfApp</RootNamespace>
-    <AssemblyName>OAuthWcfApp</AssemblyName>
+    <RootNamespace>TestWCF</RootNamespace>
+    <AssemblyName>TestWCF</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <UseIISExpress>true</UseIISExpress>
@@ -30,7 +30,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,12 +38,8 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>3</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net20\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -52,41 +47,26 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Mobile" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\TokenService.svc" />
-    <Content Include="Services\UserService.svc" />
+    <Content Include="TokenService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authorize\CustomHeaderMessageInspector.cs" />
-    <Compile Include="Authorize\JwtTokenHandler.cs" />
-    <Compile Include="Authorize\LoginValidator.cs" />
-    <Compile Include="Authorize\RoleBasedAuthorizationManager.cs" />
-    <Compile Include="Models\LoginPasswordData.cs" />
-    <Compile Include="Models\UserRoles.cs" />
-    <Compile Include="Services\ITokenService.cs" />
-    <Compile Include="Services\IUserService.cs" />
-    <Compile Include="Authorize\TokenHandlerService.cs" />
-    <Compile Include="Services\TokenService.svc.cs">
+    <Compile Include="ITokenService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TokenService.svc.cs">
       <DependentUpon>TokenService.svc</DependentUpon>
     </Compile>
-    <Compile Include="Services\UserService.svc.cs">
-      <DependentUpon>UserService.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -107,9 +87,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49847</DevelopmentServerPort>
+          <DevelopmentServerPort>52310</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49847/</IISUrl>
+          <IISUrl>http://localhost:52310/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

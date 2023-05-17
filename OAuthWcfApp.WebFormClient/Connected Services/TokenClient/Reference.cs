@@ -16,7 +16,7 @@ namespace OAuthWcfApp.WebFormClient.TokenClient {
     public interface ITokenService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITokenService/Authorize", ReplyAction="http://tempuri.org/ITokenService/AuthorizeResponse")]
-        string Authorize(string login, string password);
+        string Authorize(string loginPasswordInJsonFormat);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITokenService/Exchange", ReplyAction="http://tempuri.org/ITokenService/ExchangeResponse")]
         string Exchange(string authorizationGrant);
@@ -49,8 +49,8 @@ namespace OAuthWcfApp.WebFormClient.TokenClient {
                 base(binding, remoteAddress) {
         }
         
-        public string Authorize(string login, string password) {
-            return base.Channel.Authorize(login, password);
+        public string Authorize(string loginPasswordInJsonFormat) {
+            return base.Channel.Authorize(loginPasswordInJsonFormat);
         }
         
         public string Exchange(string authorizationGrant) {

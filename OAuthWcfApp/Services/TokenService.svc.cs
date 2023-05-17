@@ -1,4 +1,5 @@
-﻿using OAuthWcfApp.Authorize;
+﻿using Newtonsoft.Json;
+using OAuthWcfApp.Authorize;
 using OAuthWcfApp.Models;
 using System;
 
@@ -13,9 +14,10 @@ namespace OAuthWcfApp.Services
             _loginValidator = new LoginValidator();
             _tokenHandlerService = new TokenHandlerService();
         }
-        public string Authorize(AuthRequest request)
+        public string Authorize(string loginPasswordInJsonFormat)
         {
-            if (_loginValidator.ValidateCredentials(request.Login, request.Password))
+            LoginPasswordData data = JsonConvert.DeserializeObject<LoginPasswordData>(loginPasswordInJsonFormat);
+            if (_loginValidator.ValidateCredentials(data.Login, data.Password))
             {
                 // Create a new GUID as an authorization grant.
                 string authorizationGrant = Guid.NewGuid().ToString();
@@ -30,11 +32,12 @@ namespace OAuthWcfApp.Services
                 _tokenHandlerService.StoreAuthorizationGrant(authorizationGrant, user);
 
                 // This is essentially a temporary code that the client receives as confirmation that the user has agreed to grant access.
-                return authorizationGrant;
+                return JsonConvert.SerializeObject(new { success = true, token = authorizationGrant });
             }
             else
             {
-                throw new Exception("Invalid login or password");
+                // return "Invalid login or password";
+                return JsonConvert.SerializeObject(new { success = false, error = "Invalid login or password" });
             }
         }
 
