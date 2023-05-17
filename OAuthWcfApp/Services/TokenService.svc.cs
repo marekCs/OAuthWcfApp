@@ -6,10 +6,12 @@ namespace OAuthWcfApp.Services
 {
     public class TokenService : ITokenService
     {
-        private LoginValidator _loginValidator;
+        private readonly LoginValidator _loginValidator;
+        private readonly TokenHandlerService _tokenHandlerService;
         public TokenService()
         {
             _loginValidator = new LoginValidator();
+            _tokenHandlerService = new TokenHandlerService();
         }
         public string Authorize(string login, string password)
         {
@@ -23,10 +25,11 @@ namespace OAuthWcfApp.Services
                 {
                     Id = 1,
                     Login = "test",
-                    Password = "password"
+                    Role = UserRoles.Admin
                 };
-                TokenHandlerService.AuthorizationGrants[authorizationGrant] = user;
+                _tokenHandlerService.StoreAuthorizationGrant(authorizationGrant, user);
 
+                // This is essentially a temporary code that the client receives as confirmation that the user has agreed to grant access.
                 return authorizationGrant;
             }
             else
@@ -37,22 +40,7 @@ namespace OAuthWcfApp.Services
 
         public string Exchange(string authorizationGrant)
         {
-            // We will check if there is an authorization grant.
-            if (TokenHandlerService.AuthorizationGrants.ContainsKey(authorizationGrant))
-            {
-                // Create a new access token.
-                string accessToken = Guid.NewGuid().ToString();
-
-                // Move users from authorization grants to access tokens.
-                TokenHandlerService.AccessTokens[accessToken] = TokenHandlerService.AuthorizationGrants[authorizationGrant];
-                TokenHandlerService.AuthorizationGrants.Remove(authorizationGrant);
-
-                return accessToken;
-            }
-            else
-            {
-                throw new Exception("Invalid authorization grant");
-            }
+            return _tokenHandlerService.Exchange(authorizationGrant);
         }
     }
 }

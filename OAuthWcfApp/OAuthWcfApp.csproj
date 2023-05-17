@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Authorize\JwtTokenHandler.cs" />
     <Compile Include="Authorize\LoginValidator.cs" />
+    <Compile Include="Authorize\RoleBasedAuthorizationManager.cs" />
     <Compile Include="Models\UserRoles.cs" />
     <Compile Include="Services\ITokenService.cs" />
     <Compile Include="Services\IUserService.cs" />

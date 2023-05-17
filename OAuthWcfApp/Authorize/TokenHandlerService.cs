@@ -6,16 +6,17 @@ namespace OAuthWcfApp.Authorize
 {
     public class TokenHandlerService
     {
-        private JwtTokenHandler _jwtTokenHandler;
+        private readonly JwtTokenHandler _jwtTokenHandler;
+
+        private Dictionary<string, UserModel> AuthorizationGrants { get; set; }
+        private Dictionary<string, UserModel> AccessTokens { get; set; }
 
         public TokenHandlerService()
         {
             _jwtTokenHandler = new JwtTokenHandler();
+            AuthorizationGrants = new Dictionary<string, UserModel>();
+            AccessTokens = new Dictionary<string, UserModel>();
         }
-
-        public static Dictionary<string, UserModel> AuthorizationGrants = new Dictionary<string, UserModel>();
-        public static Dictionary<string, UserModel> AccessTokens = new Dictionary<string, UserModel>();
-
 
         public void StoreAuthorizationGrant(string authorizationGrant, UserModel user)
         {
@@ -38,6 +39,18 @@ namespace OAuthWcfApp.Authorize
             else
             {
                 throw new Exception("Invalid authorization grant");
+            }
+        }
+
+        public UserModel GetAssociatedUser(string accessToken)
+        {
+            if (AccessTokens.ContainsKey(accessToken))
+            {
+                return AccessTokens[accessToken];
+            }
+            else
+            {
+                throw new Exception("No user associated with this access token");
             }
         }
 

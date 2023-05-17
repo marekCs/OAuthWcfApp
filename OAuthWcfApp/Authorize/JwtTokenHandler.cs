@@ -10,17 +10,38 @@ namespace OAuthWcfApp.Authorize
 {
     public class JwtTokenHandler
     {
-        private string secretKey = ConfigurationManager.AppSettings["SecretKey"];
+        private readonly string _secretKey;
 
+        public JwtTokenHandler()
+        {
+            _secretKey = ConfigurationManager.AppSettings["SecretKey"];
+            if (string.IsNullOrEmpty(_secretKey))
+            {
+                throw new InvalidOperationException("SecretKey is not set in the configuration");
+            }
+        }
+        private class Base64UrlPayload
+        {
+            public string sub { get; set; }
+            public string role { get; set; }
+            public long iat { get; set; }
+            public long exp { get; set; }
+        }
         public string GenerateToken(string username, UserRoles role)
         {
             var header = new { alg = "HS256", typ = "JWT" };
+            string tokenExpiration = ConfigurationManager.AppSettings["TokenExpiryMinutes"];
+            if (string.IsNullOrEmpty(tokenExpiration))
+            {
+                throw new InvalidOperationException("Token expiration is not set in the configuration");
+            }
+            int expiryMinutes = Convert.ToInt32(tokenExpiration);
             var payload = new
             {
                 sub = username,
                 role = role.ToString(),
                 iat = DateTime.Now.Ticks / TimeSpan.TicksPerSecond,
-                exp = DateTime.Now.AddMinutes(20).Ticks / TimeSpan.TicksPerSecond
+                exp = DateTime.Now.AddMinutes(expiryMinutes).Ticks / TimeSpan.TicksPerSecond
             };
 
             string stringifiedHeader = SerializeToJson(header);
@@ -53,7 +74,7 @@ namespace OAuthWcfApp.Authorize
 
         private string CreateHmacSignature(string header, string payload)
         {
-            byte[] key = Encoding.UTF8.GetBytes(secretKey);
+            byte[] key = Encoding.UTF8.GetBytes(_secretKey);
             byte[] message = Encoding.UTF8.GetBytes(header + "." + payload);
 
             using (var hmacsha256 = new HMACSHA256(key))
@@ -91,12 +112,16 @@ namespace OAuthWcfApp.Authorize
         {
             return JsonConvert.DeserializeObject<T>(json);
         }
-
-        private class Base64UrlPayload
+        public string GetRoleFromToken(string token)
         {
-            public string sub { get; set; }
-            public long iat { get; set; }
-            public long exp { get; set; }
+            string[] parts = token.Split('.');
+            if (parts.Length != 3)
+                throw new Exception("Invalid token");
+
+            string payload = parts[1];
+            var payloadJson = DeserializeFromJson<Base64UrlPayload>(Base64UrlDecode(payload));
+
+            return payloadJson.role;
         }
     }
 }

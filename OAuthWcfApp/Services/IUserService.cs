@@ -7,6 +7,6 @@ namespace OAuthWcfApp.Services
     public interface IUserService
     {
         [OperationContract]
-        UserModel GetUser(string accessToken);
+        UserModel GetAllUserInfo(string accessToken);
     }
 }

@@ -8,7 +8,10 @@ namespace OAuthWcfApp.Models
     {
         public int Id { get; set; }
         public string Login { get; set; }
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
+        public string Occupation { get; set; }
+        public string Nationality { get; set; }
+        public string PassportNumber { get; set; }
         public UserRoles Role { get; set; }
     }
 }

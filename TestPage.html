@@ -19,6 +19,7 @@
                     success: function (data) {
                         $('#accessToken').text(data);
                         $('#login-error').text("");
+                        $('#login-error').text("Login approved: " + xhr.responseText);
                         $('#get-user').removeAttr('disabled');
                     },
                     error: function (xhr, status, error) {
@@ -34,7 +35,10 @@
 
                 $.ajax({
                     type: "GET",
-                    url: "http://localhost:8089/oAuthService/Services/UserService.svc/GetUser?accessToken=" + encodeURIComponent(accessToken),
+                    url: "http://localhost:8089/oAuthService/Services/UserService.svc/GetUser",
+                    headers: {
+                        "Authorization": "Bearer " + accessToken
+                    },
                     dataType: "text",
                     success: function (data) {
                         $('#user').text(data);
@@ -55,14 +59,14 @@
         <label for="password-input">Password:</label>
         <input type="password" id="password-input" />
         <br />
-        <button id="login">Get Access Token</button>
+        <button id="login">Get Auth Grant</button>
         <div id="accessToken"></div>
         <div id="login-error" style="color: red;"></div>
     </div>
 
     <br />
 
-    <button id="get-user" disabled>Get User</button>
+    <button id="get-user" disabled>GetAllUserInfo With Jwt Token</button>
     <div id="user"></div>
 </body>
 </html>
