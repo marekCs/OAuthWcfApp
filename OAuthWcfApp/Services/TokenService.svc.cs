@@ -13,9 +13,9 @@ namespace OAuthWcfApp.Services
             _loginValidator = new LoginValidator();
             _tokenHandlerService = new TokenHandlerService();
         }
-        public string Authorize(string login, string password)
+        public string Authorize(AuthRequest request)
         {
-            if (_loginValidator.ValidateCredentials(login, password))
+            if (_loginValidator.ValidateCredentials(request.Login, request.Password))
             {
                 // Create a new GUID as an authorization grant.
                 string authorizationGrant = Guid.NewGuid().ToString();

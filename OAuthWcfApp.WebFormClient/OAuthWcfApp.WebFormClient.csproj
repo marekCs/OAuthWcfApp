@@ -5,15 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
     </ProductVersion>
-    <SchemaVersion>3.0</SchemaVersion>
-    <ProjectGuid>{70DFAD35-76ED-4B3C-8063-539EF63FEAA1}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EBAC842B-86DD-48F2-87AF-9296ACBE7630}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OAuthWcfApp</RootNamespace>
-    <AssemblyName>OAuthWcfApp</AssemblyName>
+    <RootNamespace>OAuthWcfApp.WebFormClient</RootNamespace>
+    <AssemblyName>OAuthWcfApp.WebFormClient</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
-    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
@@ -30,7 +29,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>3</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -39,59 +37,91 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <LangVersion>3</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net20\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Mobile" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Services\TokenService.svc" />
-    <Content Include="Services\UserService.svc" />
-    <Content Include="Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Authorize\CorsModule.cs" />
-    <Compile Include="Authorize\CustomHeaderMessageInspector.cs" />
-    <Compile Include="Authorize\JwtTokenHandler.cs" />
-    <Compile Include="Authorize\LoginValidator.cs" />
-    <Compile Include="Authorize\RoleBasedAuthorizationManager.cs" />
-    <Compile Include="Models\UserRoles.cs" />
-    <Compile Include="Services\ITokenService.cs" />
-    <Compile Include="Services\IUserService.cs" />
-    <Compile Include="Authorize\TokenHandlerService.cs" />
-    <Compile Include="Services\TokenService.svc.cs">
-      <DependentUpon>TokenService.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Services\UserService.svc.cs">
-      <DependentUpon>UserService.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Models\UserModel.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="Connected Services\TokenClient\TokenService.wsdl" />
+    <None Include="Connected Services\TokenClient\TokenService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\TokenClient\TokenService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\UserClient\OAuthWcfApp.WebFormClient.UserClient.UserModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\UserClient\UserService.wsdl" />
+    <None Include="Connected Services\UserClient\UserService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserClient\UserService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserClient\UserService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\TokenClient\TokenService.disco" />
+    <None Include="Connected Services\TokenClient\configuration91.svcinfo" />
+    <None Include="Connected Services\TokenClient\configuration.svcinfo" />
+    <None Include="Connected Services\TokenClient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\UserClient\UserService.disco" />
+    <None Include="Connected Services\UserClient\configuration91.svcinfo" />
+    <None Include="Connected Services\UserClient\configuration.svcinfo" />
+    <None Include="Connected Services\UserClient\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Default.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\TokenClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserClient\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\TokenClient\" />
+    <WCFMetadataStorage Include="Connected Services\UserClient\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -106,9 +136,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>49847</DevelopmentServerPort>
+          <DevelopmentServerPort>56141</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49847/</IISUrl>
+          <IISUrl>http://localhost:56141/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

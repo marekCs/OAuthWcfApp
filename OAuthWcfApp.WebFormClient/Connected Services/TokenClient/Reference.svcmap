@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="d0e18873-093e-4f4d-9986-dc8fa1e3d0e1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8089/oAuthService/Services/TokenService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TokenService.wsdl" MetadataType="Wsdl" ID="2c774ea6-9ead-4eb7-a8c3-f7c4f0cdf8e0" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?wsdl" />
+    <MetadataFile FileName="TokenService.xsd" MetadataType="Schema" ID="39d399e6-f9a2-46c4-9dfe-ffd0bf768fd2" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TokenService.disco" MetadataType="Disco" ID="f1205c2f-6c00-4a3d-8476-d038047047eb" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?disco" />
+    <MetadataFile FileName="TokenService1.xsd" MetadataType="Schema" ID="4a984978-990c-4786-ad4e-50f0cf054be0" SourceId="1" SourceUrl="http://kerberoslaptop02:8089/oAuthService/Services/TokenService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
