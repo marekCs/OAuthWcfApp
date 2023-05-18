@@ -64,12 +64,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authorize\CustomHeaderMessageInspector.cs" />
+    <Compile Include="Authorize\CustomPrincipalPermissionAttribute.cs" />
     <Compile Include="Authorize\JwtTokenHandler.cs" />
     <Compile Include="Authorize\LoginValidator.cs" />
     <Compile Include="Authorize\RoleBasedAuthorizationManager.cs" />
     <Compile Include="Models\LoginPasswordData.cs" />
-    <Compile Include="Models\UserRoles.cs" />
+    <Compile Include="Models\UsersRole.cs" />
     <Compile Include="Services\ITokenService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Authorize\TokenHandlerService.cs" />
