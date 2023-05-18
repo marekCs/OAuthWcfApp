@@ -113,12 +113,13 @@ namespace OAuthWcfApp.WebFormClient
                 request.Accept = "text/xml";
                 request.Method = "POST";
 
+                // Přidání hlavičky Authorization
+                request.Headers.Add("Authorization", "Bearer " + jwtToken);
+
                 // Vytvoření těla SOAP požadavku
                 string soapBody = $@"<?xml version=""1.0"" encoding=""utf-8""?><soap:Envelope xmlns:soap=""http://schemas.xmlsoap.org/soap/envelope/"" xmlns:tem=""http://tempuri.org/"">
     <soap:Body>
-        <tem:GetAllUserInfo>
-            <tem:jwtToken>{jwtToken}</tem:jwtToken>
-        </tem:GetAllUserInfo>
+        <tem:GetAllUserInfo/>
     </soap:Body>
 </soap:Envelope>";
                 string soapResponse = SendSoapRequest(request, soapBody);
