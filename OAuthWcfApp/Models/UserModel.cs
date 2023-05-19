@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-
-namespace OAuthWcfApp.Models
+﻿namespace OAuthWcfApp.Models
 {
     public class UserModel
     {

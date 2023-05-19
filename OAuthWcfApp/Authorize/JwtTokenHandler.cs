@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Configuration;
-using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 using Newtonsoft.Json;
+using OAuthWcfApp.Configuration;
 using OAuthWcfApp.Models;
 
 namespace OAuthWcfApp.Authorize
@@ -11,14 +10,23 @@ namespace OAuthWcfApp.Authorize
     public class JwtTokenHandler
     {
         private readonly string _secretKey;
+        private readonly string _tokenExpiration;
+        private readonly AppConfiguration _config;
 
         public JwtTokenHandler()
         {
-            _secretKey = ConfigurationManager.AppSettings["SecretKey"];
-            if (string.IsNullOrEmpty(_secretKey))
+            _config = new AppConfiguration();
+
+            if (string.IsNullOrEmpty(_config.SecretKey))
             {
                 throw new InvalidOperationException("SecretKey is not set in the configuration");
             }
+            if (string.IsNullOrEmpty(_config.TokenExpiryMinutes))
+            {
+                throw new InvalidOperationException("Token expiration is not set in the configuration");
+            }
+            _secretKey = _config.SecretKey;
+            _tokenExpiration = _config.TokenExpiryMinutes;
         }
         private class Base64UrlPayload
         {
@@ -30,12 +38,8 @@ namespace OAuthWcfApp.Authorize
         public string GenerateToken(string username, UserRoles role)
         {
             var header = new { alg = "HS256", typ = "JWT" };
-            string tokenExpiration = ConfigurationManager.AppSettings["TokenExpiryMinutes"];
-            if (string.IsNullOrEmpty(tokenExpiration))
-            {
-                throw new InvalidOperationException("Token expiration is not set in the configuration");
-            }
-            int expiryMinutes = Convert.ToInt32(tokenExpiration);
+
+            int expiryMinutes = Convert.ToInt32(_tokenExpiration);
             var payload = new
             {
                 sub = username,

@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using System.Text;
 using System.Web.Services;
-using System.Web.UI.WebControls;
 using System.Xml;
 using Newtonsoft.Json;
 using OAuthWcfApp.WebFormClient.Models;

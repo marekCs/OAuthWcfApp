@@ -2,7 +2,6 @@
 using OAuthWcfApp.Authorize;
 using OAuthWcfApp.Models;
 using System;
-using System.IO;
 
 namespace OAuthWcfApp.Services
 {
@@ -10,6 +9,7 @@ namespace OAuthWcfApp.Services
     {
         private readonly LoginValidator _loginValidator;
         private readonly TokenHandlerService _tokenHandlerService;
+
         public TokenService()
         {
             _loginValidator = new LoginValidator();
@@ -22,7 +22,8 @@ namespace OAuthWcfApp.Services
                 // Create a new GUID as an authorization grant.
                 string authorizationGrant = Guid.NewGuid().ToString();
 
-                // We store the authorization grant and login information in our dictionary.
+                // We store the permissions granted and login credentials in our file system (for demonstration purposes only), on the live server we store this in the database.
+                // Similarly we generate users randomly from de in code, but here you pull the user data from the database as well
                 Random random = new Random();
                 int randomNumber = random.Next(5, 1001);
                 UserModel user = new UserModel
@@ -45,16 +46,16 @@ namespace OAuthWcfApp.Services
 
         public string Exchange(string authorizationGrant)
         {
-            // První kontrola zda existuje daný grant token.
+            // First check if the grant token exists.
             var storedUser = _tokenHandlerService.GetAssociatedUserWithGrant(authorizationGrant);
 
             if (storedUser == null)
             {
-                // Pokud ne, vrátit chybovou zprávu.
+                // If not, return an error message.
                 return JsonConvert.SerializeObject(new { JwtToken = "", Success = false, Message = "Invalid authorization grant!" });
             }
 
-            // Pokud existuje, pokračovat s generováním přístupového tokenu.
+            // If it exists, continue with access token generation.
             string token = _tokenHandlerService.Exchange(authorizationGrant);
 
             if (string.IsNullOrEmpty(token))

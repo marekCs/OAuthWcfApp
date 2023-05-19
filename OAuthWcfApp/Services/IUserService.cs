@@ -1,5 +1,4 @@
-﻿using OAuthWcfApp.Models;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 
 namespace OAuthWcfApp.Services
 {

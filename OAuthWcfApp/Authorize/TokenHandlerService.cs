@@ -11,13 +11,11 @@ namespace OAuthWcfApp.Authorize
         private readonly JwtTokenHandler _jwtTokenHandler;
         private readonly string _authorizationGrantsFilePath;
         private readonly string _accessTokensFilePath;
-        private readonly string _logPath;
         public TokenHandlerService()
         {
             _jwtTokenHandler = new JwtTokenHandler();
-            _authorizationGrantsFilePath = "C:\\Users\\marek\\Documents\\Logy\\authorization_grants.json";
-            _accessTokensFilePath = "C:\\Users\\marek\\Documents\\Logy\\access_tokens.json";
-            _logPath = "C:\\Users\\marek\\Documents\\Logy\\log.txt";
+            _authorizationGrantsFilePath = "youirPathForTesting\\authorization_grants.json";
+            _accessTokensFilePath = "youirPathForTesting\\access_tokens.json";
         }
 
         public void StoreAuthorizationGrant(string authorizationGrant, UserModel user)
@@ -60,6 +58,7 @@ namespace OAuthWcfApp.Authorize
         {
             try
             {
+                // Replace this with something from the database, for testing purposes we want to return something that only Admin has access to, but it can be anything not only User info
                 Dictionary<string, UserModel> accessTokens = LoadDataFromFile<Dictionary<string, UserModel>>(_accessTokensFilePath);
                 UserModel firstUser = null;
 
@@ -91,7 +90,7 @@ namespace OAuthWcfApp.Authorize
                     throw new Exception("Buď je JwtToken:" + jwtToken + " prázdný a nebo není v seznamu tokenů.");
                 }
 
-                // Pokud token není platný, odstraníme ho ze seznamu
+                // If the token is not valid, remove it from the list
                 if (!_jwtTokenHandler.IsValidToken(jwtToken))
                 {
                     accessTokens.Remove(jwtToken);
@@ -112,16 +111,16 @@ namespace OAuthWcfApp.Authorize
 
         public UserModel GetAssociatedUserWithGrant(string authorizationGrant)
         {
-            // Načtení dat ze souboru (nebo z databáze) do slovníku.
+            // Reading data from a file (or database) into the dictionary.
             Dictionary<string, UserModel> authorizationGrants = LoadDataFromFile<Dictionary<string, UserModel>>(_authorizationGrantsFilePath) ?? new Dictionary<string, UserModel>();
 
-            // Pokud slovník obsahuje daný grant token, vrátit příslušného uživatele.
+            // If the dictionary contains the given grant token, return the corresponding user.
             if (authorizationGrants.ContainsKey(authorizationGrant))
             {
                 return authorizationGrants[authorizationGrant];
             }
 
-            // Pokud slovník neobsahuje daný grant token, vrátit null.
+            // If the dictionary does not contain the given grant token, return null.
             return null;
         }
 
@@ -142,9 +141,10 @@ namespace OAuthWcfApp.Authorize
             return default(T);
         }
 
+        // replace it with your own logging system and add it to the DI container
         public void SaveLog(string message)
         {
-            using (StreamWriter writer = new StreamWriter(_logPath))
+            using (StreamWriter writer = new StreamWriter("yourLogPath"))
             {
                 writer.WriteLine(message, true);
             }

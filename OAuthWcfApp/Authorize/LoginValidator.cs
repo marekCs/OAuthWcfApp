@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web;
-
-namespace OAuthWcfApp.Authorize
+﻿namespace OAuthWcfApp.Authorize
 {
     public class LoginValidator
     {
