@@ -1,9 +1,4 @@
 # OAuthWcfApp
-If you want, we don't have to do it through the Freelancer server and you send me the money directly to Paypal at marekdvorak@protonmail.com but if you want to do it through the Freelancer server I'm not against it at all, I'll leave it up to you.
-
-
-
-
 I am working on the following project: Provide OAUTH 2.0 sample using WCF .NET Framework 3.0 and javascript AJAX.
 
 - Client: Victorio S. P. 
