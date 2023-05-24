@@ -1,7 +1,4 @@
 # OAuthWcfApp
-If you want you can send me money directly, my paypal is marekdvorak@protonmail.com
-
-
 I am working on the following project: Provide OAUTH 2.0 sample using WCF .NET Framework 3.0 and javascript AJAX.
 
 - Client: Victorio S. P. 
